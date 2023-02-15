@@ -1,0 +1,33 @@
+<div class="card bg-light mb-3">
+    <div class="card-header">{{ titulo }}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-3" [routerLink]="['/clientes']">Volver</button>
+
+        <form>
+   
+            <div class="fom-group">
+                <label for="descripcion">Nombre</label>
+                <input type="text" name="nombre" class="form-control" id="nombre"
+                [(ngModel)]="calificacion.nombre">
+                <div class="alert alert-danger" *ngIf="error?.nombre">
+                    {{error.nombre}}
+                </div>
+            </div>
+            <div class="fom-group">
+                <label for="precio">Calificacion</label>
+                <input type="calificacion" name="calificacion" class="form-control"  id="calificacion"
+                [(ngModel)]="calificacion.calificacion">
+                <div class="alert alert-danger" *ngIf="error?.calificacion">
+                    {{error.calificacion}}
+                </div>
+            </div>
+            <br>
+            <div class="fom-group">
+                <button type="button"  class="btn btn-primary" 
+                    (click)="calificacion.id? editar(): crear()">
+                    {{calificacion.id? 'Editar': 'Crear'}}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
